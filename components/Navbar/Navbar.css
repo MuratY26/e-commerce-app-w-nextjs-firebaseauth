@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Signika";
+    src: local("Signika"), url("/signika/Signika-VariableFont_GRAD\,wght.ttf") format("truetype");
+  } 
+
+.navtext {
+    font-family: Signika, Arial;
+    color: white;
+}
+
+.navtext:hover {
+    color: #a4161a;
+    transform: scale(1.05);
+}
+
+.cartCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: absolute;
+    padding-bottom: 0.1em;
+    top: 33%;
+    left: 30%;
+    font-size: 0.75em;
+    border: none;
+    border-radius: 50%;
+    background-color: #b9181a;
+    width: 1.25em;
+    height: 1.25em;
+}

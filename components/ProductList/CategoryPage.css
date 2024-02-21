@@ -1,0 +1,209 @@
+:root {
+    --red: #a4161a;
+}
+
+ @font-face {
+    font-family: "Signika";
+    src: local("Signika"), url("/signika/Signika-VariableFont_GRAD\,wght.ttf") format("truetype");
+  } 
+
+.categoryPageContanier{
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.fakeNav {
+    height: 50px;
+    width: 100%;
+    background: rgb(208, 239, 250);
+}
+
+.fakeFooter {
+    height: 50px;
+    width: 100%;
+    background: gray;
+}
+
+.filterBar {
+    display: flex;
+    color: black;
+    justify-content: space-around;
+    align-items: center;
+    height: 4em;
+    width: 100%;
+    border: 1px solid black;
+}
+/* Sort Classses Start */
+.sort {
+    position: relative;
+    font-size: 1.3rem;
+    border: 3px solid gray;
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;
+    cursor: pointer;
+    width: max-content;
+}
+
+.sort:hover, .sort:active, .filterText:hover, .filterText:active{
+    border: 3px solid var(--red); 
+}
+
+.sortSelectionContainer {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 104%;
+    width: max-content;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.sortSelectionContainer.show {
+    display: block;
+}
+
+.sortSelection {
+    font-size: 1rem;
+    font-family: sans-serif;
+    text-align: left;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.sortSelection:hover , .sortSelection:active {
+    background-color: rgb(221, 219, 219);
+}
+/* Sort Classses END */
+
+/* Filter Classes Start */
+.filterContainer {
+    position: fixed;
+    top: 0;
+    right: -52%;
+    height: 100%;
+    width: 50%;
+    background-color: white;
+    border-left: 1px solid rgb(192, 192, 192);
+    transition: transform 0.5s;
+    z-index: 999;
+}
+
+.filterContainer.show {
+    transform: translateX(-101%);
+}
+
+.filterCloseButton {
+    color: rgb(145, 1, 37);
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    left: -0.35em;
+    top: -0.47em;
+    box-sizing: border-box;
+    cursor: pointer; 
+}
+
+.filterCloseButton:hover, .filterCloseButton:active {
+    color: rgb(175, 5, 5);
+}
+
+.filterText {
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 2px solid gray;
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.priceFilter {
+    margin: 4em auto 0 auto;
+    text-align: left;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    width: 75%;
+}
+
+.checkbox-label {
+    font-size: 1.2em;
+    text-align: left;
+    display: block;
+    margin: 0.5em auto 0.5em 1em;
+}
+
+.checkbox-input {
+    margin-right: 0.25em;
+}
+/* Filter Classes END */
+/* Product List Classes Start */
+.listContainer {
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 10px;
+    color: black;
+}
+
+.itemContainer {
+    width: 45%;
+    border: 2px solid #cfcece;
+    text-decoration: none; 
+    color: inherit;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.itemContainer:active, .itemContainer:hover {
+    box-shadow: rgba(238, 174, 202, 0.5) 0px 0px 0.5em 0.2em;
+    border: 2px solid #a4161a;
+    transition: border 0.3s ease 0s;
+    transform: scale(1.01);
+}
+
+.itemImage {
+    width: 100%;
+}
+
+.itemName {
+    text-align: left;
+    font-family: Signika;
+}
+
+.itemPrice {
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Helvetica'
+}
+
+/* Product List Classes END*/
+
+@media screen and (min-width: 992px) {
+    .itemContainer {
+        width: 22.5%;  
+    }
+
+    .listContainer {
+        width: 90%;
+        margin: 20px auto;
+        row-gap: 20px;
+    }
+
+    .filterContainer {
+        position: fixed;
+        top: 0;
+        right: -21%;
+        height: 100%;
+        width: 20%;
+        background-color: white;
+        transition: transform 0.5s;
+    }
+    
+    .filterText {
+        font-size: 1.3rem;
+    }
+  }
