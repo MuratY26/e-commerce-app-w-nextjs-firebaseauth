@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Rating from "@mui/material/Rating";
-import styles from "@/app/product/[productid]/productPage.module.css";
+
 
 export default function Rate(props) {
   const [rating, setRating] = useState(props.rate);

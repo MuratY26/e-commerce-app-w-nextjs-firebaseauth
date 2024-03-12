@@ -1,9 +1,9 @@
 import ProductImage from "./productImage";
-import styles from "./productPage.module.css";
+import styles from "./productpage.module.css";
 import products from "@/public/products.json";
 import AddToFav from "./AddToFav";
 import AddToCart from "./AddToCart";
-import Rate from "./rate";
+import Rate from "./Rate";
 
 export default function ProductPage({ params }: { params: any }) {
   const productId = params.productId;
@@ -29,7 +29,7 @@ export default function ProductPage({ params }: { params: any }) {
           <p className={styles.description}>{product?.description}</p>
           <p className={styles.price}>{product?.price} $</p>
           <div className={styles.addTo}>
-            <AddToCart productId={productId} />
+            <AddToCart product={product} />
             <AddToFav productId={productId} />
           </div>
           <div

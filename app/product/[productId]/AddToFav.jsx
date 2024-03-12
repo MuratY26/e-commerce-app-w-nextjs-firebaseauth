@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import styles from "./productPage.module.css";
+import styles from "./productpage.module.css";
 import { HiOutlineHeart } from "react-icons/hi";
 import { HiHeart } from "react-icons/hi";
 
@@ -8,14 +8,14 @@ export default function AddToFav({ productId }) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "");
+    let favorites = JSON.parse(localStorage.getItem("favorites"));
     if (Array.isArray(favorites) && favorites.includes(productId)) {
       setIsFav(true);
     }
   }, []);
 
   function handleFav() {
-    let favorites = JSON.parse(localStorage.getItem("favorites") || "");
+    let favorites = JSON.parse(localStorage.getItem("favorites"));
     if (!Array.isArray(favorites)) {
       favorites = [];
     }

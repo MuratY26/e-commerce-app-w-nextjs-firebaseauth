@@ -1,15 +1,38 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import signIn from '@/lib/signIn';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignInPage = () => {
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (!user) {
+        return;
+      }
+      let token = await user.getIdToken()
+      fetch("/api/login", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((response) => {
+        console.log(response, "*********************")
+        if (response.status === 200) {
+          router.push("/");
+        }
+      });
+    });
+    return () => unsubscribe();
+  }, []);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+
   const handleSignIn = async (e : any) => {
     e.preventDefault();
     try {

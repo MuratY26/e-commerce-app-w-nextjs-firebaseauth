@@ -7,15 +7,17 @@ import { onAuthStateChanged , signOut } from "firebase/auth";
 
 export default function SignInOut() {
   const router = useRouter();
-  function handleSignOut() {
-     signOut(auth); 
-     router.push("/")
+  async function handleSignOut() {
+
+    await signOut(auth); 
+    const response = await fetch("/api/logout", {method: "GET"});
+    if( response.status === 200) {
+      router.push("/")
+    }
   }
 
   function useUserSession(initialUser) {
-    // The initialUser comes from the server through a server component
     const [user, setUser] = useState(initialUser);
-    
     useEffect(() => {
             const unsubscribe = onAuthStateChanged(auth, authUser => {
                     setUser(authUser);
