@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Navbar from '../components/Navbar/Navbar'
 import './globals.css'
 import Footer from '../components/Footer/Footer';
-import { auth } from "@/lib/firebase";
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,14 +18,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const unsubscribe = auth.onAuthStateChanged(() => {})
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar count={2} ></Navbar>
+        <div className="wrapperTop">
+        <Navbar  ></Navbar>
         {children}
+        </div>
+        <div className="wrapperBot">
+
         <Footer></Footer>
-        </body>
+        </div>
+      </body>
     </html>
   ) 
 }

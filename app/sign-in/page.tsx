@@ -19,7 +19,6 @@ const SignInPage = () => {
           Authorization: `Bearer ${token}`,
         },
       }).then((response) => {
-        console.log(response, "*********************")
         if (response.status === 200) {
           router.push("/");
         }

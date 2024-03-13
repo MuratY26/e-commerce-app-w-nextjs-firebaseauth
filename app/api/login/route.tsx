@@ -4,7 +4,6 @@ import { cookies, headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { redirect } from "next/navigation";
 
-
 initializeAdmin();
 
 export async function POST(request: NextRequest, response: NextResponse) {
@@ -17,7 +16,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
       console.log(verifiedToken);
       if (verifiedToken) {
         //Generating session cookie
-        const expiresIn = 60 * 60 * 24 * 1000;
+        const expiresIn = 60 * 60 * 24 * 1000; // 1000 day? 1 günü kabul etmiyor?
         const sessionCookie = await auth().createSessionCookie(idToken, {
           expiresIn,
         });
@@ -30,13 +29,12 @@ export async function POST(request: NextRequest, response: NextResponse) {
           secure: true,
         };
 
-        //Add the cookie to the browser
         cookies().set(options);
       }
     }
   } catch (error : any) {
     console.error(error.message);
-    return NextResponse.json({"a": 5} , { status: 501})
+    return NextResponse.json({}, { status: 501})
   }
 
   return NextResponse.json({}, { status: 200 });

@@ -4,8 +4,9 @@ import { HiShoppingBag } from "react-icons/hi";
 import { useState, useEffect } from "react";
 
 export default function AddtoCart({ product }) {
-  // const [cart, setCart] = useState([]);
-  //let item = {id: 1, description: "temporary_item"}
+
+  const event = new Event("cartChange");
+
   let item = product;
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cart")) || []);
   const [index, setIndex] = useState(
@@ -31,7 +32,9 @@ export default function AddtoCart({ product }) {
       newItems.push(item);
       setCartItems(newItems);
       localStorage.setItem("cart", JSON.stringify(newItems));
+      window.dispatchEvent(event);
     }
+    
   }
 
   function removeFromCart() {
@@ -42,7 +45,7 @@ export default function AddtoCart({ product }) {
       setCartItems(newItems);
       localStorage.setItem("cart", JSON.stringify(newItems));
     }
-    console.log(cartItems, index);
+    window.dispatchEvent(event);
   }
 
   function handleDecreaseQuantity() {

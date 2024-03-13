@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HiShoppingBag } from "react-icons/hi";
+import CartButton from "./CartButton";  
 import "./Navbar.css";
 import { SignInOut } from "./SignInOut";
-import { auth } from "@/lib/firebase";
+//import { auth } from "@/lib/firebase";
 
-function Navbar({ count }) {
+function Navbar() {
+
 
   return (
     <nav className=" border-gray-200 bg-stone-900 flex justify-between items-center">
@@ -39,10 +40,7 @@ function Navbar({ count }) {
         <div className="border-2 border-solid border-red-200 rounded-lg mr-4 px-4 py-1">
           <SignInOut/>
         </div>
-        <Link href="" className={` text-2xl navtext relative`}>
-          <HiShoppingBag className="mr-10 text-4xl " />{" "}
-          <span className="cartCount">{count > 9 ? "+9" : count}</span>
-        </Link>
+          <CartButton />
       </div>
     </nav>
   );

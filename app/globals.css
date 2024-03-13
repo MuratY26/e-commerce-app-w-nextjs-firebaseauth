@@ -16,18 +16,25 @@
   }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
 body {
   color: black;
   background: white;
-  /*background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    */
+  display: flex;
+  justify-content: space-between; 
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapperTop {
+  flex: 1;
+}
+
+.wrapperBot {
+  flex-shrink: 0;
 }
