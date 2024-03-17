@@ -1,20 +1,26 @@
-An E-Commerce themed website built by Nextjs(App Router) and uses Firebase authentication. 
+#  E-commerce Website Built With Next.js and Firebase
 
-After signing in by Firebase client sdk, api routes and admin sdk is used to create session cookies so authorization can be handled on the server. Nextjs middleware is utilized to implement protected routes(checkout page).
+After signing in with Firebase client sdk, api routes and admin sdk is used to create session cookies so authorization can be handled on the server. Nextjs middleware is utilized to implement protected routes(checkout page).
 
 To adhere to the philosophy of Next.js, minimum amount of client components are used. Cart state is updated by custom events throughout the site.
 
-Used CSS libraries:
--CSS modules
--Tailwind CSS
--Material UI
--React-icons
+## Used CSS libraries:
 
-Things to improve:
+-CSS modules
+
+-Tailwind CSS
+
+-Material UI
+
+-React-icons
+<br></br>
+## Things to improve:
+
 -No user info is stored, cart state is stored in local storage, store user's cart info in a db, fetch it on login
+
 -Use product id to query a specific product's info.
 
-ScreenShots:
+## Screenshots:
 
 ![ss2](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/905019e7-e307-4569-9402-60b9b59f07dc)
 
