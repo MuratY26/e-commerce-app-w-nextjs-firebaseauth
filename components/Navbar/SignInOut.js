@@ -3,50 +3,46 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { auth } from "@/lib/firebase";
-import { onAuthStateChanged , signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 export default function SignInOut() {
   const router = useRouter();
-  async function handleSignOut() {
 
-    await signOut(auth); 
-    const response = await fetch("/api/logout", {method: "GET"});
-    if( response.status === 200) {
-      router.push("/")
+  async function handleSignOut() {
+    await signOut(auth);
+    const response = await fetch("/api/logout", { method: "GET" });
+    if (response.status === 200) {
+      router.refresh();
     }
   }
 
-  function useUserSession(initialUser) {
-    const [user, setUser] = useState(initialUser);
-    useEffect(() => {
-            const unsubscribe = onAuthStateChanged(auth, authUser => {
-                    setUser(authUser);
-            });
-            return () => {
-                    unsubscribe();
-            };
-    }, []);
+  const [user, setUser] = useState(auth.currentUser);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      console.log("status changed");
+      setUser(authUser);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
-    useEffect(() => {
-            onAuthStateChanged(auth, authUser => {
-                    if (user === undefined) return;
-                    if (user?.email !== authUser?.email) {
-                            router.refresh();
-                    }
-            });
-    }, [user]);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      console.log("status changed");
+      setUser(authUser);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
-    return user;
-}
-
-
-  let user = useUserSession(auth.currentUser);
-  if(user) {
+  if (user) {
     return (
       <button onClick={handleSignOut} className={`text-2xl navtext`}>
-      Sign Out
-    </button>
-    )
+        Sign Out
+      </button>
+    );
   } else {
     return (
       <>

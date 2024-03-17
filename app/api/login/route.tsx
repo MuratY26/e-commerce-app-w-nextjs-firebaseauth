@@ -2,7 +2,6 @@ import { auth } from "firebase-admin";
 import initializeAdmin from "@/lib/admin-auth";
 import { cookies, headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
-import { redirect } from "next/navigation";
 
 initializeAdmin();
 
@@ -13,7 +12,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     if (authorization?.startsWith("Bearer ")) {
       const idToken = authorization.split("Bearer ")[1];
       const verifiedToken = await auth().verifyIdToken(idToken);
-      console.log(verifiedToken);
       if (verifiedToken) {
         //Generating session cookie
         const expiresIn = 60 * 60 * 24 * 1000; // 1000 day? 1 günü kabul etmiyor?

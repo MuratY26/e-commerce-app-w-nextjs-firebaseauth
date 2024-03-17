@@ -7,7 +7,7 @@ export default function Cart ({}) {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cart") || "[]")
   );
-
+  let totalPrice = cartItems.reduce((prev : any,curr: any) => prev+(curr.price*curr.quantity), 0).toFixed(2);
   return (
     <div className="flex mx-auto my-12 w-3/4 h-5/6 items-start justify-between">
       <div className="w-3/4">
@@ -23,8 +23,8 @@ export default function Cart ({}) {
       </div>
 
       <div className="border border-black rounded-md p-2 pt-4 pb-8 w-1/6 min-w-max">
-        <p>Total Price : {cartItems.reduce((prev : any,curr: any) => prev+(curr.price*curr.quantity), 0).toFixed(2)} $</p>
-        <Link  href="/checkout" id="checkOut" className="inline-block cursor-pointer border-2 border-red-800 p-2 rounded-lg bg-red-700 text-gray-50 mt-4">
+        <p>Total Price : {totalPrice} $</p>
+        <Link  href={`/checkout?totalPrice=${totalPrice}`} id="checkOut" className="inline-block cursor-pointer border-2 border-red-800 p-2 rounded-lg bg-red-700 text-gray-50 mt-4">
           Check Out
         </Link>
       </div>

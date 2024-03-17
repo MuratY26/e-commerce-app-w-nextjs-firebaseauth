@@ -12,9 +12,9 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ isLogged: false }, { status: 401 });
     }
 
-    const decodedClaims = await auth().verifySessionCookie(session, true);
+    const verifiedToken = await auth().verifySessionCookie(session, true);
   
-    if (!decodedClaims) {
+    if (!verifiedToken) {
       return NextResponse.json({ isLogged: false }, { status: 401 });
     }
   

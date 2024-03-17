@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from 'react';
-import signIn from '@/lib/signIn';
 import { auth } from '@/lib/firebase';
 import { useRouter } from 'next/navigation';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -14,13 +13,16 @@ const SignInPage = () => {
       }
       let token = await user.getIdToken()
       fetch("/api/login", {
+        cache: "no-store",
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }).then((response) => {
         if (response.status === 200) {
+         // window.location.href ="/";
           router.push("/");
+          router.refresh();
         }
       });
     });
@@ -36,7 +38,6 @@ const SignInPage = () => {
     e.preventDefault();
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        router.push("/");
     } catch (error) {
       console.error('Sign-in error:', error);
       setError(String(error));
