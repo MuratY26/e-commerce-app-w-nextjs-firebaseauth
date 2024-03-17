@@ -1,4 +1,6 @@
-An E-Commerce themed website built by Nextjs(App Router) and uses Firebase authentication. After signing in by Firebase client sdk, api routes and admin sdk is used to create session cookies so authorization can be handled on server. Nextjs middleware is utilized to implement protected routes(checkout page).
+An E-Commerce themed website built by Nextjs(App Router) and uses Firebase authentication. 
+
+After signing in by Firebase client sdk, api routes and admin sdk is used to create session cookies so authorization can be handled on the server. Nextjs middleware is utilized to implement protected routes(checkout page).
 
 To adhere to the philosophy of Next.js, minimum amount of client components are used. Cart state is updated by custom events throughout the site.
 
