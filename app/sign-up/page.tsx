@@ -15,6 +15,7 @@ export default function SignUpPage() {
     try {
         await createUserWithEmailAndPassword(auth, email, password);
         router.push("/");
+        router.refresh();
     } catch (error) {
       console.error('Sign-up error:', error);
       setError('An error occurred during sign-up.');
