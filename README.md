@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+An E-Commerce themed website built by Nextjs(App Router) and uses Firebase authentication. After signing in by Firebase client sdk, api routes and admin sdk is used to create session cookies so authorization can be handled on server. Nextjs middleware is utilized to implement protected routes(checkout page).
 
-## Getting Started
+To adhere to the philosophy of Next.js, minimum amount of client components are used. Cart state is updated by custom events throughout the site.
 
-First, run the development server:
+Used CSS libraries:
+-CSS modules
+-Tailwind CSS
+-Material UI
+-React-icons
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Things to improve:
+-No user info is stored, cart state is stored in local storage, store user's cart info in a db, fetch it on login
+-Use product id to query a specific product's info.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ScreenShots:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![ss2](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/905019e7-e307-4569-9402-60b9b59f07dc)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![ss1](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/2059e43a-5b65-4143-9dc6-c8b999f769ef)
 
-## Learn More
+![ss5](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/636eea55-57a3-427a-98f4-11d3bf220b7a)
 
-To learn more about Next.js, take a look at the following resources:
+![ss3](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/2a823982-e10a-4208-9290-764b4e0043e1)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![ss4](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/fcdfdbb9-e33f-4e99-a423-80d779612425)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![ss66](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/9a1bf5e4-c206-48aa-8a9b-279d745c037b)
 
-## Deploy on Vercel
+Protected page, user cant reach it if not signed in.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![ss7](https://github.com/MuratY26/e-commerce-app-w-nextjs-firebaseauth/assets/97476056/d80647b3-aa96-4078-afa3-33433810eeee)
