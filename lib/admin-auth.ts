@@ -1,6 +1,6 @@
 import admin  from "firebase-admin";
 
- const serviceAccount = JSON.parse(process.env.serviceAccount);
+const serviceAccount = JSON.parse(process.env.serviceAccount as string);
 
 export default function initializeAdmin() {
 
