@@ -10,7 +10,7 @@ export default function Footer() {
       </div>
       <div className={`${styles.footerInfo}`}>
         <div>
-          <h5 className="text-uppercase mb-2">Explore LET's GO SHOP</h5>
+          <h5 className="text-uppercase mb-2">Explore LET&apos;s GO SHOP</h5>
           <ul className="">
             <li>
               <a href="#" className="text-white">

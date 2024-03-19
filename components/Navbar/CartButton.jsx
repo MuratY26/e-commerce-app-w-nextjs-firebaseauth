@@ -6,9 +6,10 @@ import { useState, useEffect } from "react";
 
 export default function CartButton() {
  //client component olsa da server consoluna localStoragei bulamadim diyor?
- const [count, setCount] = useState(JSON.parse(localStorage.getItem("cart"))?.length || 0);
+ const [count, setCount] = useState(0);
 
  useEffect(() =>{
+  setCount(JSON.parse(localStorage.getItem("cart"))?.length || 0);
     function handleCountChange() {
         setCount(JSON.parse(localStorage.getItem("cart"))?.length || 0);
     }

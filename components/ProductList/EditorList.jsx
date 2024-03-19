@@ -16,7 +16,7 @@ export default function EditorList() {
     []);
     return (
         <>
-        <div className="text-center my-auto mx-0 font-bold text-red-700 text-3xl underline">Editor's Choice</div>
+        <div className="text-center my-auto mx-0 font-bold text-red-700 text-3xl underline">Editor&apos;s Choice</div>
         <div className="listContainer">
         {editorProds.length != 0 ? editorProds.map((product) => (
             <ItemCard product={product} key={product.id } />

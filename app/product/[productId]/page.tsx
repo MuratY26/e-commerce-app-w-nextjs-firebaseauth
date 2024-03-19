@@ -4,6 +4,9 @@ import products from "@/public/products.json";
 import AddToFav from "./AddToFav";
 import AddToCart from "./AddToCart";
 import Rate from "./Rate";
+import localFont from "next/font/local";
+
+const signika = localFont({src: "../../../public/signika/Signika-VariableFont_GRAD\,wght.ttf"});
 
 export default function ProductPage({ params }: { params: any }) {
   const productId = params.productId;
@@ -14,10 +17,12 @@ export default function ProductPage({ params }: { params: any }) {
       <div
         className={
           styles.container +
+
           " flex" +
           " flex-row" +
           " gap-x-28" +
-          " justify-center"
+          " justify-center " +
+          signika.className
         }
       >
         <div className={styles.itemImage + " p-6"}>
@@ -37,7 +42,7 @@ export default function ProductPage({ params }: { params: any }) {
               styles.shippingPolicy + " mt-12" + " text-l text-slate-800"
             }
           >
-            Thank you for shopping with us at Let's Go Shop. We strive to
+            Thank you for shopping with us at Let&apos;s Go Shop. We strive to
             provide you with the best shopping experience, including fast and
             reliable shipping services.
             <h2 className="text-xl mt-2 text-black">Shipping Methods</h2>

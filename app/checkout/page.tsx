@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import { redirect } from "next/navigation";
-
 export default async function Checkout({
   searchParams,
 }: {
@@ -8,7 +5,7 @@ export default async function Checkout({
 }) {
   let totalPrice = searchParams.totalPrice;
   totalPrice = Number(totalPrice);
-  totalPrice = encodeURIComponent(totalPrice);
+  totalPrice = encodeURIComponent(totalPrice); //is it safe(html injection vs?)
 
   return (
     <div className="w-1/3 bg-green-500 bg-opacity-50 border border-green-600 rounded-md p-4 m-4">

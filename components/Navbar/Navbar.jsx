@@ -3,13 +3,14 @@ import Image from "next/image";
 import CartButton from "./CartButton";  
 import "./Navbar.css";
 import { SignInOut } from "./SignInOut";
-//import { auth } from "@/lib/firebase";
+import localFont from 'next/font/local';
+
+const signika = localFont({src: "../../public/signika/Signika-VariableFont_GRAD\,wght.ttf"});
 
 function Navbar() {
 
-
   return (
-    <nav className=" border-gray-200 bg-stone-900 flex justify-between items-center">
+    <nav className={"border-gray-200 bg-stone-900 flex justify-between items-center " + signika.className}>
       <div className="flex items-center justify-center">
         <Link href="/">
           <Image src="/logos.png" width={250} height={200} alt="logo" />
@@ -24,14 +25,14 @@ function Navbar() {
         <Link
           href="/category/[category]"
           as="/category/women"
-          className={`ml-10 text-2xl navtext`}
+          className="ml-10 text-2xl navtext"
         >
           WOMEN
         </Link>
         <Link
           href="/category/[category]"
           as="/category/kids"
-          className={`ml-10 text-2xl navtext`}
+          className="ml-10 text-2xl navtext"
         >
           KIDS
         </Link>

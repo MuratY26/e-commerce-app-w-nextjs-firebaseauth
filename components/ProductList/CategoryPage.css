@@ -2,11 +2,6 @@
     --red: #a4161a;
 }
 
- @font-face {
-    font-family: "Signika";
-    src: local("Signika"), url("/signika/Signika-VariableFont_GRAD\,wght.ttf") format("truetype");
-  } 
-
 .categoryPageContanier{
     width: 90%;
     margin: 0 auto;
@@ -171,7 +166,6 @@
 
 .itemName {
     text-align: left;
-    font-family: Signika;
 }
 
 .itemPrice {

@@ -11,6 +11,7 @@ const SignInPage = () => {
       if (!user) {
         return;
       }
+
       let token = await user.getIdToken()
       fetch("/api/login", {
         cache: "no-store",
@@ -20,7 +21,6 @@ const SignInPage = () => {
         },
       }).then((response) => {
         if (response.status === 200) {
-         // window.location.href ="/";
           router.push("/");
           router.refresh();
         }

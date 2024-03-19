@@ -5,8 +5,12 @@ import Link from "next/link";
 
 export default function Cart ({}) {
   const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cart") || "[]")
+    []
   );
+  useEffect(() => {
+    setCartItems(JSON.parse(localStorage.getItem("cart") || "[]"));
+  }, []);
+  
   let totalPrice = cartItems.reduce((prev : any,curr: any) => prev+(curr.price*curr.quantity), 0).toFixed(2);
   return (
     <div className="flex mx-auto my-12 w-3/4 h-5/6 items-start justify-between">
@@ -14,7 +18,7 @@ export default function Cart ({}) {
         {cartItems.length ? (
           <ul>
             {cartItems.map((item: any) => {
-              return <CartItem item={item} setCartItems={setCartItems} />;
+              return <CartItem item={item} setCartItems={setCartItems} key={item.id} />;
             })}
           </ul>
         ) : (
