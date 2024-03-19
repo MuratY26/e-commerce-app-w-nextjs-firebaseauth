@@ -23,6 +23,8 @@ const SignInPage = () => {
         if (response.status === 200) {
           router.push("/");
           router.refresh();
+        } else {
+          auth.signOut();
         }
       });
     });
