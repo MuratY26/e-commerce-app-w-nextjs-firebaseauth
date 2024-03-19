@@ -3,7 +3,7 @@ import styles from "./productpage.module.css";
 import products from "@/public/products.json";
 import AddToFav from "./AddToFav";
 import AddToCart from "./AddToCart";
-import Rate from "./Rate";
+import Rate from "./rate";
 import localFont from "next/font/local";
 
 const signika = localFont({src: "../../../public/signika/Signika-VariableFont_GRAD\,wght.ttf"});
