@@ -2,6 +2,7 @@ import { auth } from "firebase-admin";
 import initializeAdmin from "@/lib/admin-auth";
 import { cookies, headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 
 initializeAdmin();
 
@@ -13,12 +14,12 @@ export async function POST(request: NextRequest, response: NextResponse) {
       const idToken = authorization.split("Bearer ")[1];
       const verifiedToken = await auth().verifyIdToken(idToken);
       if (verifiedToken) {
+        console.log(verifiedToken);
         //Generating session cookie
         const expiresIn = 60 * 60 * 24 * 1000; // 1000 day? 1 günü kabul etmiyor?
         const sessionCookie = await auth().createSessionCookie(idToken, {
           expiresIn,
         });
-        //console.log(sessionCookie, "**cookie");
         const options = {
           name: "session",
           value: sessionCookie,
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
       }
     }
   } catch (error : any) {
-    console.error(error.message);
+    console.error("Error: ", error.message);
     return NextResponse.json({}, { status: 501})
   }
 
