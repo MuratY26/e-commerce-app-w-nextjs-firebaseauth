@@ -18,7 +18,7 @@ export default function SignInOut() {
 
   const [user, setUser] = useState(auth.currentUser);
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {      
       setUser(authUser);
     });
     return () => {
