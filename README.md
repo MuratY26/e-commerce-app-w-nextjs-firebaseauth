@@ -1,5 +1,7 @@
 #  E-commerce Website Built With Next.js and Firebase
 
+[Live Demo](https://firsttry-nine.vercel.app/)
+
 After signing in with Firebase client sdk, api routes and admin sdk is used to create session cookies so authorization can be handled on the server. Nextjs middleware is utilized to implement protected routes(checkout page).
 
 To adhere to the philosophy of Next.js, minimum amount of client components are used. Cart state is updated by custom events throughout the site.
